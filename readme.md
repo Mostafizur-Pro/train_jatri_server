@@ -5,7 +5,7 @@ This project is a backend system for managing train services, stations, user wal
 
 ## Live Demo Vercel
 
-The server for this application can be found here: [Kormo Bazaar Server](https://kormo-bazar-server1.vercel.app/)
+The server for this application can be found here: [Train Jatri Server](https://kormo-bazar-server1.vercel.app/)
 
 
 ## Git Repository Server
@@ -67,24 +67,27 @@ You can view the server-side code here: [Train Jatri Server Repository](https://
 ### User Management
 
 - **Register User:**
-  - URL: `/api/auth/register`
+  - URL: `/api/v1/users/signup`
   - Method: `POST`
-  - Body: 
+  - Body:
     ```json
     {
-      "username": "your_username",
-      "password": "your_password"
+      "name": "user",
+      "number": "01950165016",
+      "email": "noman@example.com",
+      "password": "123456",
+      "wallet": "120"
     }
     ```
 
 - **Login User:**
-  - URL: `/api/auth/login`
+  - URL: `/api/v1/auth/login`
   - Method: `POST`
-  - Body: 
+  - Body:
     ```json
     {
-      "username": "your_username",
-      "password": "your_password"
+      "email": "mostafiz@example.com",
+      "password": "123456"
     }
     ```
   - Response:
@@ -94,20 +97,176 @@ You can view the server-side code here: [Train Jatri Server Repository](https://
     }
     ```
 
-### Future Endpoints
+- **Find All Users:**
+  - URL: `/api/v1/users`
+  - Method: `GET`
 
-- **Station Management:**
-  - Create, update, and retrieve station information
+- **Find User by ID:**
+  - URL: `/api/v1/users/:id`
+  - Method: `GET`
 
-- **Train Management:**
-  - Create, update, and retrieve train schedules and stops
+- **Update User by ID:**
+  - URL: `/api/v1/users/:id`
+  - Method: `PATCH`
 
-- **Wallet Integration:**
-  - Add funds to user wallets and retrieve wallet balance
+- **Delete User by ID:**
+  - URL: `/api/v1/users/:id`
+  - Method: `DELETE`
 
-- **Ticketing System:**
-  - Purchase tickets and calculate fares
-  
+### Station Management
+
+- **Create Station:**
+  - URL: `/api/v1/stations/create-station`
+  - Method: `POST`
+  - Body:
+    ```json
+    {
+      "name": "West Station",
+  "code": "WS012",
+  "location": "West End",
+  "city": "Khulna",
+  "state": "Khulna"
+    }
+    ```
+
+- **Find All stations:**
+  - URL: `/api/v1/stations`
+  - Method: `GET`
+
+- **Find stations by ID:**
+  - URL: `/api/v1/stations/id/:id`
+  - Method: `GET`
+
+- **Update stations by ID:**
+  - URL: `/api/v1/stations/update/:id`
+  - Method: `PATCH`
+
+- **Delete stations by ID:**
+  - URL: `/api/v1/stations/delete/:id`
+  - Method: `DELETE`
+
+### Train Management
+
+- **Create Train:**
+  - URL: `/api/v1/trains/create-train`
+  - Method: `POST`
+  - Body:
+    ```json
+    {
+      "name": "Local 505",
+  "number": "LOC505",
+  "type": "Local",
+  "capacity": "300",
+  "status": "Running",
+  "stops": [
+    {
+      "station": "station_id_7",
+      "arrivalTime": "2024-08-07T08:30:00Z",
+      "departureTime": "2024-08-07T08:50:00Z"
+    },
+    {
+      "station": "station_id_8",
+      "arrivalTime": "2024-08-07T09:20:00Z",
+      "departureTime": "2024-08-07T09:40:00Z"
+    }
+  ]
+    }
+    ```
+
+- **Find All Trains:**
+  - URL: `/api/v1/trains`
+  - Method: `GET`
+
+- **Find Train by ID:**
+  - URL: `/api/v1/trains/id/:id`
+  - Method: `GET`
+
+- **Update Train by ID:**
+  - URL: `/api/v1/trains/update/:id`
+  - Method: `PATCH`
+
+- **Delete Train by ID:**
+  - URL: `/api/v1/trains/delete/:id`
+  - Method: `DELETE`
+
+
+### Wallet Management
+
+- **Create Wallet:**
+  - URL: `/api/v1/wallets/create-wallet`
+  - Method: `POST`
+  - Body:
+    ```json
+    {
+      "user": "user_id_4",  
+  "balance": 1500,
+  "transactions": [
+    {
+      "amount": 200,
+      "date": "2024-08-07T09:00:00Z",
+      "type": "debit",
+      "description": "Online purchase"
+    }
+  ]
+    }
+    ```
+
+- **Find All Wallet:**
+  - URL: `/api/v1/wallets`
+  - Method: `GET`
+
+- **Find Wallet by ID:**
+  - URL: `/api/v1/wallets/id/:id`
+  - Method: `GET`
+
+- **Update Wallet by ID:**
+  - URL: `/api/v1/wallets/update/:id`
+  - Method: `PATCH`
+
+- **Delete Wallet by ID:**
+  - URL: `/api/v1/wallets/delete/:id`
+  - Method: `DELETE`
+
+
+### Ticket Management
+
+- **Create Ticket:**
+  - URL: `/api/v1/tickets/create-ticket`
+  - Method: `POST`
+  - Body:
+    ```json
+    {
+      "name": "Local Ticket with Description",
+  "number": "LOC999",
+  "type": "Local",
+  "capacity": 180,
+  "status": "Running",
+  "stops": [
+    {
+      "station": "station_id_9",  
+      "arrivalTime": "2024-08-08T10:00:00Z",
+      "departureTime": "2024-08-08T10:30:00Z"
+    }
+  ]
+    }
+    ```
+
+- **Find All Ticket:**
+  - URL: `/api/v1/tickets`
+  - Method: `GET`
+
+- **Find Ticket by ID:**
+  - URL: `/api/v1/tickets/id/:id`
+  - Method: `GET`
+
+- **Update Ticket by ID:**
+  - URL: `/api/v1/tickets/update/:id`
+  - Method: `PATCH`
+
+- **Delete Ticket by ID:**
+  - URL: `/api/v1/tickets/delete/:id`
+  - Method: `DELETE`
+
 ## Contact
 
 If you have any questions, feel free to reach out at [mostafizur0195@gmail.com](mailto:mostafizur0195@gmail.com) or call me at [01950165017](tel:01950165017).
