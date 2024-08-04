@@ -5,7 +5,7 @@ This project is a backend system for managing train services, stations, user wal
 
 ## Live Demo Vercel
 
-The server for this application can be found here: [Train Jatri Server](https://kormo-bazar-server1.vercel.app/)
+The server for this application can be found here: [Train Jatri Server](https://train-service-management-system.vercel.app/)
 
 
 ## Git Repository Server
