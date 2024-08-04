@@ -122,10 +122,10 @@ You can view the server-side code here: [Train Jatri Server Repository](https://
     ```json
     {
       "name": "West Station",
-  "code": "WS012",
-  "location": "West End",
-  "city": "Khulna",
-  "state": "Khulna"
+      "code": "WS012",
+      "location": "West End",
+      "city": "Khulna",
+      "state": "Khulna"
     }
     ```
 
@@ -154,22 +154,22 @@ You can view the server-side code here: [Train Jatri Server Repository](https://
     ```json
     {
       "name": "Local 505",
-  "number": "LOC505",
-  "type": "Local",
-  "capacity": "300",
-  "status": "Running",
-  "stops": [
-    {
-      "station": "station_id_7",
-      "arrivalTime": "2024-08-07T08:30:00Z",
-      "departureTime": "2024-08-07T08:50:00Z"
-    },
-    {
-      "station": "station_id_8",
-      "arrivalTime": "2024-08-07T09:20:00Z",
-      "departureTime": "2024-08-07T09:40:00Z"
-    }
-  ]
+      "number": "LOC505",
+      "type": "Local",
+      "capacity": "300",
+      "status": "Running",
+      "stops": [
+        {
+          "station": "station_id_7",
+          "arrivalTime": "2024-08-07T08:30:00Z",
+          "departureTime": "2024-08-07T08:50:00Z"
+        },
+        {
+          "station": "station_id_8",
+          "arrivalTime": "2024-08-07T09:20:00Z",
+          "departureTime": "2024-08-07T09:40:00Z"
+        }
+      ]
     }
     ```
 
@@ -199,15 +199,15 @@ You can view the server-side code here: [Train Jatri Server Repository](https://
     ```json
     {
       "user": "user_id_4",  
-  "balance": 1500,
-  "transactions": [
-    {
-      "amount": 200,
-      "date": "2024-08-07T09:00:00Z",
-      "type": "debit",
-      "description": "Online purchase"
-    }
-  ]
+      "balance": 1500,
+      "transactions": [
+        {
+          "amount": 200,
+          "date": "2024-08-07T09:00:00Z",
+          "type": "debit",
+          "description": "Online purchase"
+        }
+      ]
     }
     ```
 
@@ -237,17 +237,17 @@ You can view the server-side code here: [Train Jatri Server Repository](https://
     ```json
     {
       "name": "Local Ticket with Description",
-  "number": "LOC999",
-  "type": "Local",
-  "capacity": 180,
-  "status": "Running",
-  "stops": [
-    {
-      "station": "station_id_9",  
-      "arrivalTime": "2024-08-08T10:00:00Z",
-      "departureTime": "2024-08-08T10:30:00Z"
-    }
-  ]
+      "number": "LOC999",
+      "type": "Local",
+      "capacity": 180,
+      "status": "Running",
+      "stops": [
+        {
+          "station": "station_id_9",  
+          "arrivalTime": "2024-08-08T10:00:00Z",
+          "departureTime": "2024-08-08T10:30:00Z"
+        }
+      ]
     }
     ```
 
