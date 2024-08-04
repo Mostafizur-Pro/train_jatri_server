@@ -1,6 +1,6 @@
 import ApiError from '../../../errors/ApiError'
-import {  IStation } from './station.interface'
-import { Station } from './station.model'
+import {  IStation } from './train.interface'
+import { Station } from './train.model'
 
 const getAllStations = async (): Promise<IStation[] | null> => {
   const result = await Station.find()

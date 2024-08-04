@@ -2,8 +2,8 @@ import { Request, RequestHandler, Response } from 'express'
 import httpStatus from 'http-status'
 import catchAsync from '../../../shared/catchAsync'
 import sendResponse from '../../../shared/sendResponse'
-import { IStation } from './station.interface'
-import {  StationService } from './station.service'
+import { IStation } from './train.interface'
+import {  StationService } from './train.service'
 
 const createStation: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {

@@ -1,5 +1,5 @@
 import express from 'express'
-import { StationController } from './station.controller'
+import { StationController } from './train.controller'
 const router = express.Router()
 
 router.post('/create-station', StationController.createStation)
