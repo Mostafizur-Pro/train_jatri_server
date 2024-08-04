@@ -2,6 +2,7 @@ import express from 'express'
 import loginRoute from '../modules/auth/auth.route'
 import stationRoute from '../modules/station/station.route'
 import trainsRoute from '../modules/train/train.route'
+import walletsRoute from '../modules/wallet/wallet.route'
 import userRoute from '../modules/user/user.route'
 const router = express.Router()
 
@@ -21,6 +22,10 @@ const moduleRoutes = [
   {
     path: '/trains',
     route: trainsRoute,
+  },
+  {
+    path: '/wallets',
+    route: walletsRoute,
   },
 
 ]
