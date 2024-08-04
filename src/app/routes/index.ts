@@ -1,6 +1,7 @@
 import express from 'express'
 import loginRoute from '../modules/auth/auth.route'
-import jobRoute from '../modules/station/station.route'
+import stationRoute from '../modules/station/station.route'
+import trainsRoute from '../modules/train/train.route'
 import userRoute from '../modules/user/user.route'
 const router = express.Router()
 
@@ -15,20 +16,13 @@ const moduleRoutes = [
   },
   {
     path: '/stations',
-    route: jobRoute,
+    route: stationRoute,
   },
-  // {
-  //   path: '/orders',
-  //   route: OrderRoute,
-  // },
-  // {
-  //   path: '/admin',
-  //   route: adminRoute,
-  // },
-  // {
-  //   path: '/admins',
-  //   route: loginRoute,
-  // },
+  {
+    path: '/trains',
+    route: trainsRoute,
+  },
+
 ]
 moduleRoutes.forEach(route => router.use(route.path, route.route))
 export default router

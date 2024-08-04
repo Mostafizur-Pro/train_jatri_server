@@ -1,43 +1,43 @@
 import ApiError from '../../../errors/ApiError'
-import {  IStation } from './train.interface'
-import { Station } from './train.model'
+import {  ITrain } from './train.interface'
+import {  Train } from './train.model'
 
-const getAllStations = async (): Promise<IStation[] | null> => {
-  const result = await Station.find()
+const getAllTrains = async (): Promise<ITrain[] | null> => {
+  const result = await Train.find()
   return result
 }
 
-const createStation = async (station: IStation): Promise<IStation | null> => {
-  const createUser = await Station.create(station)
+const createTrain = async (train: ITrain): Promise<ITrain | null> => {
+  const createUser = await Train.create(train)
   if (!createUser) {
-    throw new ApiError(400, 'Failed to create Station')
+    throw new ApiError(400, 'Failed to create Train')
   }
 
   return createUser
 }
-const getSingleStation = async (id: string): Promise<IStation | null> => {
-  const result = await Station.findById(id)
+const getSingleTrain = async (id: string): Promise<ITrain | null> => {
+  const result = await Train.findById(id)
   return result
 }
 
-const deleteStation = async (id: string): Promise<IStation | null> => {
-  const result = await Station.findByIdAndDelete(id)
+const deleteTrain = async (id: string): Promise<ITrain | null> => {
+  const result = await Train.findByIdAndDelete(id)
   return result
 }
-const updateStation = async (
+const updateTrain = async (
   id: string,
-  payload: Partial<IStation>
-): Promise<IStation | null> => {
-  const result = await Station.findOneAndUpdate({ _id: id }, payload, {
+  payload: Partial<ITrain>
+): Promise<ITrain | null> => {
+  const result = await Train.findOneAndUpdate({ _id: id }, payload, {
     new: true,
   })
   return result
 }
 
-export const StationService = {
-  createStation,
-  getAllStations,
-  getSingleStation,
-  deleteStation,
-  updateStation,
+export const TrainService = {
+  createTrain,
+  getAllTrains,
+  getSingleTrain,
+  deleteTrain,
+  updateTrain,
 }

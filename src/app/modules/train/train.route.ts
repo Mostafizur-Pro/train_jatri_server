@@ -1,11 +1,11 @@
 import express from 'express'
-import { StationController } from './train.controller'
+import { TrainController } from './train.controller'
 const router = express.Router()
 
-router.post('/create-station', StationController.createStation)
-router.get('/', StationController.getAllStations)
-router.get('/id/:id', StationController.getSingleStation)
-router.delete('/delete/:id', StationController.deleteStation)
-router.patch('/update/:id', StationController.updateStation)
+router.post('/create-train', TrainController.createTrain)
+router.get('/', TrainController.getAllTrains)
+router.get('/id/:id', TrainController.getSingleTrain)
+router.delete('/delete/:id', TrainController.deleteTrain)
+router.patch('/update/:id', TrainController.updateTrain)
 
 export default router

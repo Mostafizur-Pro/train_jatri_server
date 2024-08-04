@@ -2,77 +2,77 @@ import { Request, RequestHandler, Response } from 'express'
 import httpStatus from 'http-status'
 import catchAsync from '../../../shared/catchAsync'
 import sendResponse from '../../../shared/sendResponse'
-import { IStation } from './train.interface'
-import {  StationService } from './train.service'
+import { ITrain } from './train.interface'
+import {  TrainService } from './train.service'
 
-const createStation: RequestHandler = catchAsync(
+const createTrain: RequestHandler = catchAsync(
   async (req: Request, res: Response) => {
-    const { ...station } = req.body
+    const { ...train } = req.body
 
-    console.log('data', station)
-    const result = await StationService.createStation(station)
+    console.log('data', train)
+    const result = await TrainService.createTrain(train)
     sendResponse(res, {
       statusCode: httpStatus.OK,
       success: true,
-      message: 'Station Placed successfully',
+      message: 'Train Placed successfully',
       data: result,
     })
   }
 )
 
-const getAllStations = catchAsync(async (req: Request, res: Response) => {
-  const result = await StationService.getAllStations()
+const getAllTrains = catchAsync(async (req: Request, res: Response) => {
+  const result = await TrainService.getAllTrains()
 
-  sendResponse<IStation[]>(res, {
+  sendResponse<ITrain[]>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Station retrieved successfully !',
+    message: 'Train retrieved successfully !',
     data: result,
   })
 })
 
-const getSingleStation = catchAsync(async (req: Request, res: Response) => {
+const getSingleTrain = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id
 
-  const result = await StationService.getSingleStation(id)
+  const result = await TrainService.getSingleTrain(id)
 
-  sendResponse<IStation>(res, {
+  sendResponse<ITrain>(res, {
     statusCode: httpStatus.OK,
     success: true,
     message: 'User retrieved successfully !',
     data: result,
   })
 })
-const deleteStation = catchAsync(async (req: Request, res: Response) => {
+const deleteTrain = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id
 
-  const result = await StationService.deleteStation(id)
+  const result = await TrainService.deleteTrain(id)
 
-  sendResponse<IStation>(res, {
+  sendResponse<ITrain>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Station deleted successfully !',
+    message: 'Train deleted successfully !',
     data: result,
   })
 })
-const updateStation = catchAsync(async (req: Request, res: Response) => {
+const updateTrain = catchAsync(async (req: Request, res: Response) => {
   const id = req.params.id
   const updatedData = req.body
 
   console.log('data', id, updatedData)
-  const result = await StationService.updateStation(id, updatedData)
+  const result = await TrainService.updateTrain(id, updatedData)
 
-  sendResponse<IStation>(res, {
+  sendResponse<ITrain>(res, {
     statusCode: httpStatus.OK,
     success: true,
-    message: 'Station updated successfully !',
+    message: 'Train updated successfully !',
     data: result,
   })
 })
-export const StationController = {
-  createStation,
-  getAllStations,
-  getSingleStation,
-  deleteStation,
-  updateStation,
+export const TrainController = {
+  createTrain,
+  getAllTrains,
+  getSingleTrain,
+  deleteTrain,
+  updateTrain,
 }
