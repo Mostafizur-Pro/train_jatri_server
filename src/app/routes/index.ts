@@ -3,6 +3,7 @@ import loginRoute from '../modules/auth/auth.route'
 import stationRoute from '../modules/station/station.route'
 import trainsRoute from '../modules/train/train.route'
 import walletsRoute from '../modules/wallet/wallet.route'
+import ticketsRoute from '../modules/ticket/ticket.route'
 import userRoute from '../modules/user/user.route'
 const router = express.Router()
 
@@ -26,6 +27,10 @@ const moduleRoutes = [
   {
     path: '/wallets',
     route: walletsRoute,
+  },
+  {
+    path: '/tickets',
+    route: ticketsRoute,
   },
 
 ]
